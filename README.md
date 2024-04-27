@@ -14,9 +14,18 @@ Contains probabilistic algorithms and experiments code writen by Husain Azaqy
     Goal of the experiment:
         To find for varying toss costs, what rate of success is considered "balance point" for said toss cost.
         Meaning for what success rate are we EXPECTED to not lose or gain any money in all of the rounds combined (for large numbers of rounds)
-    The algorithm:
-        we check for all success rates Si = granularity*i,1 <= i < 1/granularity the average outcome for many simulations of many rounds games.
-        we take the Si resulting in the closest outcome to zero in absolute value.
+
+    The first algorithm: // implemented and tested
+        - we check for all success rates Si = granularity*i,1 <= i < 1/granularity the average outcome for many simulations of many rounds games.
+        - we take the Si resulting in the closest outcome to zero in absolute value.
+
+    The second algorithm: // not yet implemented
+        - assumptions: for high enough number of rounds the outcomes of each experiment are "stable"
+        - try finding the same balance point (Si) by doing a *BINARY SEARCH*.
+        - NOTE: When the right and left reach b a distance of less than k* granularity for some k, we proceed with a linear search like before.
+        Pros: Due to the binary search, less sub experiments are ran,
+              Allowing for more accuracy and using lower granularity with the same period of runtime. therefore possibly more samples with higher accuracy.
+        Cons: The assumptions.
 
 //-----------------------------------------------------------------------------
 
